@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: raw
+    database: "{{ env_var('GCP_PROJECT_ID') }}"
+    schema: raw_data
+    tables:
+      - name: user_daily_metrics
+        description: "User-level daily game metrics (all csv.gz files merged)"
+        columns:
+          - name: user_id
+            tests: [not_null]
+          - name: event_date
+            tests: [not_null]
+          - name: platform
+            tests: [not_null]

@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: daily_metrics
+    description: "Aggregated daily metrics by event_date, country, platform"
+    tests:
+      - unique:
+          column_name: "concat(cast(event_date as string), '|', country, '|', platform)"
+    columns:
+      - name: event_date
+        tests: [not_null]
+      - name: country
+        tests: [not_null]
+      - name: platform
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['ANDROID', 'IOS']
+      - name: dau
+        tests: [not_null]

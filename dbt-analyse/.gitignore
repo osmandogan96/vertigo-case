@@ -1,0 +1,9 @@
+__pycache__
+configs/.env
+data/*
+logs/
+target/
+.idea
+*.pyc
+.venv/
+venv/

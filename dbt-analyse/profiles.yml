@@ -1,0 +1,10 @@
+games_analyse:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('GCP_PROJECT_ID') }}"
+      dataset: games_analyse_dev
+      threads: 4
+      location: EU
